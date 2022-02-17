@@ -3,19 +3,20 @@ A minimal message server for educational purposes
 
 ## Quick Start
 
-For proper concurrency control, this service needs a proper database for storage and locking.
+The service is expected to run in tandem with a relational database with locking support.
+ 
 
-### Run the server
+### Run the server via `docker-compose`
 
 Invoke `make run` to build the docker image. When the system is running, direct a browser to
 http://localhost:8080 to get an interactive view of the API.
 
-#### Requirements
+### Requirements
 
 You need to have reasonably recent versions of `make` and `docker-compose` installed 
 in order to run the `messages-demo`.
 
-## Other 
+## Notes 
 
 The `Makefile` defines a few targets for common operations.
 
