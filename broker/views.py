@@ -128,16 +128,3 @@ class UserViewSet(ModelViewSet):
                 return self.get_paginated_response(MessageSerializer(paginated_qs, many=True).data)
             except User.DoesNotExist:
                 return Response(status=404)
-
-    # Removed. This does not add anything to the API.
-    #@swagger_auto_schema(request_body=AnonymousMessageSerializer(), responses={201: 'if successfully submitted'})
-    #@action(methods=['post'], detail=True)
-    #def post_message(self, request, pk):
-    #    """
-    #    Post a message to the given user.
-    #    """
-    #    incoming = AnonymousMessageSerializer(data=request.data)
-    #    incoming.is_valid(raise_exception=True)
-    #    payload = incoming.validated_data['payload']
-    #    Message.objects.create(user=self.get_object(), payload=payload)
-    #    return Response(status=201)
