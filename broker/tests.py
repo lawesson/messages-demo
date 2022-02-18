@@ -34,6 +34,10 @@ class UsersTest(APITransactionTestCase):
         first = messages['results'][0]['payload']
         self.assertTrue(f'Message {page_size} to' in first, msg=f'not the first we expected: {first}')
 
+    def test_bad_user(self):
+        response = self.client.get(f'/api/v1/broker/users/bill/new_messages/')
+        self.assertEqual(response.status_code, 404)
+
 
 class MessagesTest(APITestCase):
     def test_message_pagination(self):

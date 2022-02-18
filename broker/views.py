@@ -114,7 +114,7 @@ class UserViewSet(ModelViewSet):
         with atomic():
             manager: Manager = User.objects
             try:
-                user: User = manager.select_for_update().filter(name=pk).first()
+                user: User = manager.select_for_update().filter(name=pk).get()
                 last_read = user.last_read_message_id or 0
                 if 'page' in request.query_params:
                     # We cannot allow to have "holes" in the seen messages, since we keep track via a single pointer
